@@ -1,70 +1,29 @@
 body {
-    margin: 0;
-    padding: 0;
-}
-
-#container {
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    height: 100vh;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
-#container div:not(:first-child) {
-    padding: 3px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-#circle {
-    height: 200px;
+.container {
     width: 200px;
-    border-radius: 50%;
-    background-color: black;
-    box-sizing: border-box;
+    height: 200px;
+    background-color: #3498db;
+    border: 2px solid #2980b9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: background-color 0.5s, border-radius 0.5s;
 }
 
-.inner {
-    background-color: red;
-    position: relative;
-    width: 100px;
-    height: 100px;
-    left: 50px;
-    top: 50px;
+.button-container {
+    margin-bottom: 20px;
 }
 
-.triangle-bottom-left {
-    */ background-color: transparent;
-    position: relative;
-    left: 50px;
-    top: 50px;
-    width: 0;
-    height: 0;
-    border-bottom: 100px solid yellow;
-    border-right: 100px solid transparent;
-}
-
-.square {
-    background-color: transparent;
-    position: relative;
-    left: 50px;
-    top: 50px;
-    width: 100px;
-    height: 100px;
-    border-top: 100px solid brown;
-}
-
-#tab {
-    padding: 8px;
-    font-size: 18px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
+button {
+    padding: 10px;
+    margin: 5px;
     cursor: pointer;
-}
-
-#tab:hover {
-    background-color: #7bb5dc;
-    transform: scale(1.1);
 }
