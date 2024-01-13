@@ -1,36 +1,46 @@
-var color = [
-    "pink",
-    "cyan",
-    "black",
-    "voilet",
-    "blue",
-    "purple",
-    "orange", "green",
-    "lightgreen",
-    "lemon",
-];
-var index = 0;
-var isTriangle = false;
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('customContainer');
+    const colorButton = document.getElementById('colorBtn');
+    const shapeButton = document.getElementById('shapeBtn');
 
-var cShape = document.getElementById("change-shape");
-var cColor = document.getElementById("change-color");
+    let shapeIndex = 0;
 
-cShape.addEventListener("click", changeShape);
-cColor.addEventListener("click", changeColor);
+    colorButton.addEventListener('click', function() {
+        const newColor = getRandomColor();
+        container.style.backgroundColor = newColor;
+    });
 
-function changeColor() {
-    var randomIndex = Math.floor(Math.random() * color.length);
-    document.getElementById("circle").style.backgroundColor = color[randomIndex];
-}
+    shapeButton.addEventListener('click', function() {
+        const shapes = ['circle', 'circle2', 'circle3', 'square'];
 
-function changeShape() {
-    if (!isTriangle) {
-        var i = document.getElementsByClassName("inner")[0];
-        i.className = "triangle-bottom-left";
-        isTriangle = true;
-    } else {
-        var i = document.getElementsByClassName("triangle-bottom-left")[0];
-        i.className = "inner";
-        isTriangle = false;
+        container.style.borderRadius = '';
+        container.style.borderBottom = '';
+
+        const currentShape = shapes[shapeIndex];
+        switch (currentShape) {
+            case 'circle':
+                container.style.borderRadius = '50%';
+                break;
+            case 'circle2':
+                container.style.borderRadius = '30%';
+                break;
+            case 'circle3':
+                container.style.borderRadius = '20%';
+                break;
+            case 'square':
+                break;
+            default:
+                break;
+        }
+        shapeIndex = (shapeIndex + 1) % shapes.length;
+    });
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
     }
-}
+});
